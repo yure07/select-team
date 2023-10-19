@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Time</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="main-container">
+        <h1>Monte o seu melhor time</h1>
+        <article class="cards-and-team">
+            <section class="container-cards" id="container-cards" onclick="addPlayer()">
+                <img src="./assets/lionel-messi-card.webp" alt="lionel-messi-card" id="messi">
+                <img src="./assets/cristiano-card.jpg" alt="cristiano-card" id="cristiano">
+                <img src="./assets/ibrahimovic-card.png" alt="frank-lampard-card" id="ibrahimovic">
+                <img src="./assets/gabigol-card.png" alt="gabigol-card" id="gabigol">
+                <img src="./assets/kante-card.jpg" alt="kante-card" id="kante">
+                <img src="./assets/mbappe-card.jpg" alt="mbappe-card" id="mbappe">
+                <img src="./assets/neymar-card.png" alt="neymar-card" id="neymar">
+                <img src="./assets/vinicius-card.jpg" alt="vinicius-card" id="vinicius">
+            </section>
+            <section class="team-board">
+                <div class="board" id="board" onclick="removePlayer()"></div>
+            </section>
+        </article>
+    </main>
+</body>
+<script src="script.js"></script>
+</html>

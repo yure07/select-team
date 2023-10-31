@@ -6,11 +6,11 @@ const players = [...cards]
 
 const addPlayer = () => {
     const board = document.getElementById('board')
+    const sectionBoard = document.getElementById('team-board')
     players.map((player) => {
         const createSpace = document.createElement('div')
         createSpace.classList = 'space-player'
         player.onclick = () => {
-            if(playersSelected.length === 5) alert('voce ja escolheu 5 jogadores!')
             if(playersSelected.includes(player.id) || playersSelected.length === 5) return    
 
             playersSelected.push(player.id)
@@ -27,6 +27,7 @@ const addPlayer = () => {
             board.appendChild(createSpace)
         }
     })
+    return playersSelected
 }
 
 const removePlayer = () => {

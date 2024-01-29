@@ -1,33 +1,36 @@
-let playersSelected = []
+let teamsSelected = []
 
 const sectionCards = document.getElementById('container-cards')
 const cards = sectionCards.children
-const players = [...cards] 
+const teams = [...cards]
 
 const addPlayer = () => {
     const board = document.getElementById('board')
     const sectionBoard = document.getElementById('team-board')
-    players.map((player) => {
+    teams.map((team) => {
         const createSpace = document.createElement('div')
         createSpace.classList = 'space-player'
-        player.onclick = () => {
-            if(playersSelected.includes(player.id) || playersSelected.length === 5) return    
+        team.onclick = () => {
+            if(teamsSelected.includes(team.id) || teamsSelected.length === 5) return  
+            console.log(team)  
+            const divImg = team.children[0]
+            const img = divImg.children[0]
 
-            playersSelected.push(player.id)
+            teamsSelected.push(team.id)
+
+            const newImgTeam = document.createElement('img')
+            newImgTeam.src = img.src
             
-            const imgPlayer = document.createElement('img')
-            imgPlayer.src = player.src
+            const newNameTeam = document.createElement('h2')
+            newNameTeam.innerHTML = team.id
             
-            const namePlayer = document.createElement('h2')
-            namePlayer.innerHTML = player.id
-            
-            createSpace.id = player.id
-            createSpace.appendChild(imgPlayer)
-            createSpace.appendChild(namePlayer)
+            createSpace.id = team.id
+            createSpace.appendChild(newImgTeam)
+            createSpace.appendChild(newNameTeam)
             board.appendChild(createSpace)
         }
     })
-    return playersSelected
+    return teamsSelected
 }
 
 const removePlayer = () => {
@@ -35,7 +38,7 @@ const removePlayer = () => {
     const playersBoard = [...board.children]
     playersBoard.map((player) => {
         player.onclick = () => {
-            playersSelected = playersSelected.filter(item => item !== player.id)
+            teamsSelected = teamsSelected.filter(item => item !== player.id)
             const elementToRemove = player
             elementToRemove.remove()
         }
